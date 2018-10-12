@@ -1,0 +1,48 @@
+<!--pages/index/index.wxml-->
+<swiper
+  indicator-dots='{{true}}'
+  indicator-color='rgba(250,250,250,0.6)'
+  autoplay='{{true}}'
+  interval='5000'
+  circular='{{true}}'
+>
+  <swiper-item>
+    <navigator url='./detail/index?id=3'>
+      <image id="7" src="/images/wx.png" class='swiper-img'></image>
+    </navigator>
+  </swiper-item>
+  <swiper-item>
+    <navigator url='./detail/index?id=4'>
+      <image src="/images/vr.png" class='swiper-img'></image>
+    </navigator>
+  </swiper-item>
+  <swiper-item>
+    <navigator url='./detail/index?id=5'>
+      <image src="/images/iqiyi.png" class='swiper-img'></image>
+    </navigator>
+  </swiper-item>
+</swiper>
+<view>
+  <navigator url='./detail/index?id={{item.postId}}' wx:for='{{newsList}}' wx:key='{{index}}' class='news-list'>
+    <view class='author-info'>
+      <image src='{{item.avatar}}' class='avatar'></image>
+      <view>
+        <view class='author-name'>{{item.author}}</view>
+        <view>{{item.date}}</view>
+      </view>
+    </view>
+    <view class='title'>{{item.title}}</view>
+    <image src='{{item.headImgSrc}}' class='head-img'></image>
+    <view class='content'>{{item.content}}</view>
+    <view class='other-info'>
+      <view class='other-item'>
+        <image src="/images/icon/view.png" class='icon'></image>
+        <text>{{item.reading}}</text>
+      </view>
+      <view class='other-item'>
+        <image src="/images/icon/chat.png" class='icon'></image>
+        <text>{{item.collection}}</text>
+      </view>
+    </view>
+  </navigator>
+</view>

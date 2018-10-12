@@ -1,0 +1,28 @@
+<!--pages/news/detail/index.wxml-->
+<view class='top-head'>
+  <image src='{{headImg}}' class='head-img'></image>
+  <image
+    src='/images/music/{{topIcon[playFlag]}}'
+    class='music-start-icon'
+    catchtap='toPlayMusic'
+  ></image>
+</view>
+<view class='content-container'>
+  <view class='author-info'>
+    <image src='{{news.avatar}}' class='avatar'></image>
+    <view>
+      <view class='author-name'>{{news.author}}</view>
+      <view>发表于 {{news.dateTime}}</view>
+    </view>
+  </view>
+  <view class='title'>{{news.title}}</view>
+  <view class='behave-floor'>
+    <view class='hor-line'></view>
+    <image src='/images/icon/{{collectIcon[collectFlag]}}' class='icon collect' catchtap='toCollect'></image>
+    <view>
+      <image src='/images/icon/share.png' class='icon' catchtap='toShare'></image>
+      <button open-type='share' class='icon share'></button>
+    </view>
+  </view>
+  <view class='content'>{{news.detail}}</view>
+</view>

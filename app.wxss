@@ -1,0 +1,17 @@
+/**app.wxss**/
+page{
+  color: #666;
+  line-height: 1;
+}
+.avatar{
+  width: 140rpx;
+  height: 140rpx;
+  margin: 0 auto 40rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.font-hide{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

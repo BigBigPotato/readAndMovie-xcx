@@ -1,0 +1,7 @@
+module.exports = {
+  filterStar: function(count) {
+    var star = count/50 * 5;
+    star = Math.round(star);
+    return star;
+  }
+}

@@ -1,0 +1,18 @@
+/**index.wxss**/
+page{
+  background: #b3d4db;
+}
+.container{
+  margin: 200rpx auto;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+}
+.open-xcx{
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28rpx;
+  color: #405f80;
+}
