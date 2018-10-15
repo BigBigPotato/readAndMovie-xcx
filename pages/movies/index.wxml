@@ -1,46 +1,31 @@
 <!--pages/movies/index.wxml-->
-<wxs module='util' src='../../utils/util.wxs'/>
+<import src='/templates/movieList.wxml' />
+
 <view class='container-box'>
   <view class='search-container'>
     <icon type='search' size='18'></icon>
-    <input class='search-input' placeholder='血战钢锯岭'></input>
+    <input
+      class='search-input'
+      placeholder='血战钢锯岭'
+      confirm-type='search'
+      bindconfirm='toSearch'
+    ></input>
   </view>
 </view>
-<view class='list-floor'  wx:for='{{list}}' wx:key='{{index}}'>
-  <view class='list-title'>
-    <text>{{item.title}}</text>
-    <view class='more'>
-      <text>更多</text>
-      <image src='/images/icon/arrow-right.png' class='more-icon'></image>
-    </view>
-  </view>
-  <view class='movie-list'>
-    <navigator
-      url='./detail/index?id={{movie.id}}'
-      class='list-item'
-      wx:for='{{item.list}}'
-      wx:for-item='movie'
-      wx:key='{{movie.id}}'
-    >
-      <image src='{{movie.images.large}}' class='poster'></image>
-      <view class='movie-name font-hide'>{{movie.title}}</view>
-      <view class='movie-star'>
-        <view class='star-container'>
-          <image
-            class='star'
-            src='/images/icon/star.png'
-            wx:for='{{util.filterStar(movie.rating.stars)}}'
-            wx:key='{{index}}'
-          ></image>
-          <image
-            class='star'
-            src='/images/icon/none-star.png'
-            wx:for='{{5 - util.filterStar(movie.rating.stars)}}'
-            wx:key='{{index}}'
-          ></image>
-        </view>
-        <text>{{movie.rating.average}}</text>
+<view hidden='{{searchFlag}}'>
+  <view class='list-floor'  wx:for='{{list}}' wx:key='{{index}}'>
+    <view class='list-title'>
+      <text>{{item.title}}</text>
+      <view class='more'>
+        <text>更多</text>
+        <image src='/images/icon/arrow-right.png' class='more-icon'></image>
       </view>
-    </navigator>
+    </view>
+
+    <template is='movie-list' data='{{list:item.list}}' />
   </view>
+</view>
+<view class='search-panel' hidden='{{!searchFlag}}'>
+  <image src='/images/icon/xx.png' class='cancle-search' catchtap='cancleSearch'></image>
+  <template is='movie-list' data='{{list:searchList}}' />
 </view>

@@ -2,6 +2,7 @@
 page{
   color: #666;
   line-height: 1;
+  font-family:MicroSoft Yahei;
 }
 .avatar{
   width: 140rpx;
@@ -10,6 +11,39 @@ page{
   border-radius: 50%;
   overflow: hidden;
 }
+.movie-list{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+}
+.list-item{
+  margin: 30rpx 0 0;
+}
+.poster{
+  width: 200rpx;
+  height: 270rpx;
+}
+.movie-name,
+.movie-star{
+  margin: 16rpx 0 0;
+}
+.movie-name{
+  max-width: 200rpx;
+}
+.movie-star{
+  display: flex;
+}
+.star-container{
+  margin: 0 20rpx 0 0;
+}
+.star{
+  width: 17rpx;
+  height: 17rpx;
+}
+
+
+
 .font-hide{
   white-space: nowrap;
   text-overflow: ellipsis;

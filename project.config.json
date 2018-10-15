@@ -40,8 +40,8 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "detail",
-					"pathName": "pages/movies/detail/index",
+					"name": "movies",
+					"pathName": "pages/movies/index",
 					"query": ""
 				}
 			]
