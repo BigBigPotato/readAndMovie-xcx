@@ -3,16 +3,16 @@
 <view class='container-box'>
   <view class='search-container'>
     <icon type='search' size='18'></icon>
-    <input class='search-input' placeholder='血战钢锯岭'></input>
+    <input class='search-input' placeholder='血战钢锯岭、'></input>
   </view>
 </view>
 <view class='list-floor'  wx:for='{{list}}' wx:key='{{index}}'>
   <view class='list-title'>
     <text>{{item.title}}</text>
-    <view class='more'>
+    <navigator url='./more/index?index={{index}}' class='more'>
       <text>更多</text>
       <image src='/images/icon/arrow-right.png' class='more-icon'></image>
-    </view>
+    </navigator>
   </view>
   <view class='movie-list'>
     <navigator

@@ -1,0 +1,37 @@
+/* pages/movies/more/index.wxss */
+.movie-list{
+  display: flex;
+  padding: 0 30rpx;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 24rpx;
+}
+.list-item{
+  margin: 30rpx 0 0;
+}
+.poster{
+  width: 200rpx;
+  height: 270rpx;
+}
+.movie-name,
+.movie-star{
+  margin: 16rpx 0 0;
+}
+.movie-name{
+  max-width: 200rpx;
+}
+.movie-star{
+  display: flex;
+}
+.star-container{
+  margin: 0 20rpx 0 0;
+}
+.star{
+  width: 17rpx;
+  height: 17rpx;
+}
+.no-more{
+  margin: 40rpx auto;
+  text-align: center;
+  font-size: 24rpx;
+}

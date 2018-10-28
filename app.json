@@ -4,7 +4,8 @@
     "pages/news/index",
     "pages/movies/index",
     "pages/news/detail/index",
-    "pages/movies/detail/index"
+    "pages/movies/detail/index",
+    "pages/movies/more/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,5 +1,6 @@
 // pages/news/detail/index.js
 const datas = require('../../../data/posts-data.js');
+const musicPlayer = wx.createInnerAudioContext();
 Page({
 
   /**
@@ -34,6 +35,11 @@ Page({
       collectFlag: collectFlag
     });
   },
+  onShow() {
+    let datas = this.data,
+        music = datas.news.music;
+    musicPlayer.src = music.url;
+  },
   checkCollect () {
     let collected = wx.getStorageSync('collect'),
         id = this.data.id;
@@ -46,11 +52,9 @@ Page({
     return 0;
   },
   toPlayMusic () {
-    let musicPlayer = wx.createInnerAudioContext(),
-        datas = this.data,
+    let datas = this.data,
         music = datas.news.music,
         playFlag = datas.playFlag;
-    musicPlayer.src = music.url;
     if(playFlag){
       // 在播放
       this.setData({

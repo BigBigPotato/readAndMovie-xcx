@@ -1,2 +1,80 @@
 <!--pages/movies/detail/index.wxml-->
-<text>pages/movies/detail/index.wxml</text>
+<wxs module='util' src='../../../utils/util.wxs'/>
+<view class='top-head'>
+  <image src='{{msg.images.large}}' mode='aspectFill' class='blur-bg'></image>
+  <view class='content-container'>
+    <view class='title'>{{msg.title}}</view>
+    <view>
+      <text>{{msg.countries[0]}}</text>
+      <text> . </text>
+      <text>{{msg.year}}</text>
+    </view>
+    <view class='info-floor'>
+      <view class='item-container'>
+        <text class='count'>{{msg.reviews_count}}</text>
+        <text>人喜欢</text>
+      </view>
+      <view class='item-container'>
+        <text class='count'>{{msg.comments_count}}</text>
+        <text>人评论</text>
+      </view>
+    </view>
+  </view>
+  <image src='{{msg.images.large}}' class='poster' catchtap='previewPoster'></image>
+</view>
+<view class='other-msg'>
+  <view class='other-floor'>
+    <text class='other-title'>评分</text>
+    <view class='star-container'>
+      <image
+        class='star'
+        src='/images/icon/star.png'
+        wx:for='{{util.filterStar(msg.rating.stars)}}'
+        wx:key='{{index}}'
+      ></image>
+      <image
+        class='star'
+        src='/images/icon/none-star.png'
+        wx:for='{{5 - util.filterStar(msg.rating.stars)}}'
+        wx:key='{{index}}'
+      ></image>
+      <text> {{msg.rating.average}}</text>
+    </view>
+  </view>
+  <view class='other-floor'>
+    <text class='other-title'>导演</text>
+    <text>{{msg.directors[0].name}}</text>
+  </view>
+  <view class='other-floor'>
+    <text class='other-title'>演员</text>
+    <text
+      wx:for='{{msg.casts}}'
+      wx:key='{{index}}'
+    >{{(index === msg.casts.length - 1) ? (item.name) : (item.name + ' / ')}}</text>
+  </view>
+  <view class='other-floor'>
+    <text class='other-title'>类型</text>
+    <text
+      wx:for='{{msg.genres}}'
+      wx:key='{{index}}'
+    >{{(index === msg.genres.length - 1) ? (item) : (item + '、')}}</text>
+  </view>
+</view>
+<view class='summary-container'>
+  <view>剧情简介</view>
+  <view class='summary'>{{msg.summary}}</view>
+</view>
+<view class='casts-container'>
+  <view>影人</view>
+  <view class='avatars'>
+    <view wx:for='{{msg.casts}}' wx:key='{{index}}' class='casts'>
+      <image
+        src='{{item.avatars.large}}'
+        class='avatar'
+        data-index='{{index}}'
+        catchtap='previewAvatar'
+      ></image>
+      <view>{{item.name}}</view>
+    </view>
+  </view>
+</view>
