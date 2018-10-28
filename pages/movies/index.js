@@ -11,7 +11,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    list:[],
+    searchList:[],
+    searchFlag:false
   },
 
   /**
@@ -56,5 +58,47 @@ Page({
     }).catch((err) => {
       console.log(err);
     });
+  },
+  toSearch (e) {
+    let url = `${baseUrl}/v2/movie/search`,
+        val = e.detail.value;
+    if(!val){
+      wx.showToast({
+        title: '请先输入搜索内容',
+        icon:'none'
+      });
+      return;
+    }
+    app.handleRequest(`${url}?q=${val}`).then((d) => {
+      // console.log(d);
+      if(d.statusCode === 200){
+        let rs = d.data;
+        if(rs.count !== 0){
+          this.setData({
+            searchFlag:true,
+            searchList: rs.subjects
+          });
+        }else{
+          wx.showToast({
+            title: '暂无内容',
+            icon: 'none'
+          });
+        }
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+  },
+  cancleSearch () {
+    this.setData({
+      searchFlag: false,
+      searchList: []
+    });
+  },
+  toMore (e) {
+    let clickIndex = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: `./more/index?index=${clickIndex}`,
+    })
   }
 })

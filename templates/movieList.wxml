@@ -1,0 +1,33 @@
+<wxs module='util' src='../utils/util.wxs'/>
+
+<template name='movie-list'>
+  <view class='movie-list'>
+    <navigator
+      url='/pages/movies/detail/index?id={{movie.id}}'
+      class='list-item'
+      wx:for='{{list}}'
+      wx:for-item='movie'
+      wx:key='{{movie.id}}'
+    >
+      <image src='{{movie.images.large}}' class='poster'></image>
+      <view class='movie-name font-hide'>{{movie.title}}</view>
+      <view class='movie-star'>
+        <view class='star-container'>
+          <image
+            class='star'
+            src='/images/icon/star.png'
+            wx:for='{{util.filterStar(movie.rating.stars)}}'
+            wx:key='{{index}}'
+          ></image>
+          <image
+            class='star'
+            src='/images/icon/none-star.png'
+            wx:for='{{5 - util.filterStar(movie.rating.stars)}}'
+            wx:key='{{index}}'
+          ></image>
+        </view>
+        <text>{{movie.rating.average}}</text>
+      </view>
+    </navigator>
+  </view>
+</template>

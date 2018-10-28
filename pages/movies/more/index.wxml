@@ -1,32 +1,5 @@
 <!--pages/movies/more/index.wxml-->
-<wxs module='util' src='../../../utils/util.wxs'/>
-<view class='movie-list'>
-  <navigator
-    url='../detail/index?id={{movie.id}}'
-    class='list-item'
-    wx:for='{{list}}'
-    wx:for-item='movie'
-    wx:key='{{movie.id}}'
-  >
-    <image src='{{movie.images.large}}' class='poster'></image>
-    <view class='movie-name font-hide'>{{movie.title}}</view>
-    <view class='movie-star'>
-      <view class='star-container'>
-        <image
-          class='star'
-          src='/images/icon/star.png'
-          wx:for='{{util.filterStar(movie.rating.stars)}}'
-          wx:key='{{index}}'
-        ></image>
-        <image
-          class='star'
-          src='/images/icon/none-star.png'
-          wx:for='{{5 - util.filterStar(movie.rating.stars)}}'
-          wx:key='{{index}}'
-        ></image>
-      </view>
-      <text>{{movie.rating.average}}</text>
-    </view>
-  </navigator>
-</view>
+<import src='/templates/movieList.wxml' />
+
+<template is='movie-list' data='{{list}}' />
 <view class='no-more' hidden='{{!isEmpty}}'>没有更多数据了</view>

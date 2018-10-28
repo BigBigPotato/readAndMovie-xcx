@@ -41,29 +41,14 @@ page{
   height: 16rpx;
   margin: 0 0 0 10rpx;
 }
-.movie-list{
-  display: flex;
-  margin: 30rpx 0 0;
-  justify-content: space-between;
+.search-panel{
+  padding: 30rpx;
+  background: #fff;
 }
-.poster{
-  width: 200rpx;
-  height: 270rpx;
-}
-.movie-name,
-.movie-star{
-  margin: 16rpx 0 0;
-}
-.movie-name{
-  max-width: 200rpx;
-}
-.movie-star{
-  display: flex;
-}
-.star-container{
-  margin: 0 20rpx 0 0;
-}
-.star{
-  width: 17rpx;
-  height: 17rpx;
+.cancle-search{
+  position: absolute;
+  right: 40rpx;
+  top: 100rpx;
+  width: 30rpx;
+  height: 30rpx;
 }
